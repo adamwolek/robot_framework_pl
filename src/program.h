@@ -1,0 +1,5 @@
+
+
+void petlaGlowna();
+
+void inicjalizacja();

@@ -8,6 +8,8 @@
 #include "Stoper.h"
 #include "Silnik.h"
 #include "WykrywaczObecnosci.h"
+#include "program.h"
+#include "Updater.h"
 
 Wysylacz wysylacz;
 Stoper stoper;
@@ -21,16 +23,13 @@ WykrywaczObecnosci lewyWykrywacz(A0);
 WykrywaczObecnosci prawyWykrywacz(A1);
 
 void setup() {
-
-
+    
+    inicjalizacja();
 }
 
 void loop() {
-    czerwonaDioda.zapal();
-    poczekaj(2);
-    czerwonaDioda.zgas();
-    poczekaj(0.5);
-
+    Updater::updateEveryListeners();
+    petlaGlowna();
 
     
 }

@@ -16,10 +16,6 @@ private:
     Polaryzacja polaryzacja;
 
 public:
-    enum Polaryzacja{
-        LEFT,
-        RIGHT
-    };
     Silnik(int controlPin1, int controlPin2, int pinEnable, Polaryzacja polaryzacja);
     ~Silnik();
     void krecDoPrzoduZPredkoscia(double predkoscWProcentach);
