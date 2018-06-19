@@ -43,13 +43,14 @@ Silnik::~Silnik(){
 }
 
 void Silnik::krecDoPrzoduZPredkoscia(double predkoscWProcentach){
-    analogWrite(pinEnable, 0);
     switch (this->polaryzacja){
         case LEFT:
+            // Serial.println("Left");
             digitalWrite(controlPin1, LOW);
             digitalWrite(controlPin2, HIGH);
             break;
         case RIGHT:
+            // Serial.println("Right");
             digitalWrite(controlPin1, HIGH);
             digitalWrite(controlPin2, LOW);
             break;
@@ -58,15 +59,17 @@ void Silnik::krecDoPrzoduZPredkoscia(double predkoscWProcentach){
 }
 
 void Silnik::krecDoTyluZPredkoscia(double predkoscWProcentach){
-    analogWrite(pinEnable, 0);
+    Serial.println("przedSilnikiem");
     switch (this->polaryzacja){
         case LEFT:
             digitalWrite(controlPin1, HIGH);
             digitalWrite(controlPin2, LOW);
+            // Serial.println("Left");
             break;
         case RIGHT:
             digitalWrite(controlPin1, LOW);
             digitalWrite(controlPin2, HIGH);
+            // Serial.println("right");
             break;
     }
     analogWrite(pinEnable, zamienNa8BitPWM(predkoscWProcentach));
@@ -88,12 +91,13 @@ void Silnik::hamuj(){
 
 int Silnik::zamienNa8BitPWM(double wProcentach){
     int wPWM;
-    if(wProcentach > 100){
+    if(wProcentach >= 100){
         wPWM = 255;
-    } else if(wProcentach < 0){
+    } else if(wProcentach <= 0){
         wPWM = 0;
     } else {
         wPWM = round(wProcentach) * (255.0/100.0);
+        Serial.println(wPWM);
     }
     return wPWM;
 }

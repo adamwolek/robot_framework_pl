@@ -1,7 +1,6 @@
-#include <Arduino.h>
+#include<Arduino.h>
 
-class Dioda
-{
+class Dioda{
 private:
     int pin;
     bool currentState;
@@ -13,6 +12,7 @@ public:
     void zgas();
     bool czyZapalona();
 };
+
 
 Dioda::Dioda(int pin)
 {

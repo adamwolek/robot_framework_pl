@@ -26,5 +26,8 @@ int CzujnikOdleglosci::getOdleglosc()
     digitalWrite(trigPin, LOW);
     long czas = pulseIn(echoPin, HIGH);
     int odleglosc = czas / 58;
+    if(odleglosc > 200){
+        odleglosc = 200;
+    }
     return odleglosc;
 }

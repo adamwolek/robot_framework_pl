@@ -8,28 +8,26 @@
 #include "Stoper.h"
 #include "Silnik.h"
 #include "WykrywaczObecnosci.h"
-#include "program.h"
-#include "Updater.h"
 
 Wysylacz wysylacz;
 Stoper stoper;
-extern Silnik lewySilnik(2, 3, 4, Silnik::Polaryzacja::LEFT);
-Silnik prawySilnik(5, 6, 7, Silnik::Polaryzacja::RIGHT);
-CzujnikOdleglosci czujnikOdleglosci(8, 9);
-Serwomechanizm serwo(10);
-Dioda czerwonaDioda(11);
-Przycisk przycisk(12);
-WykrywaczObecnosci lewyWykrywacz(A0);
-WykrywaczObecnosci prawyWykrywacz(A1);
+Silnik lewySilnik(5, 6, 10, Silnik::Polaryzacja::RIGHT);
+Silnik prawySilnik(7, 8, 9, Silnik::Polaryzacja::RIGHT);
+CzujnikOdleglosci czujnikOdleglosci(4, 3);
+// Serwomechanizm serwo(10);
+// Dioda czerwonaDioda(11);
+// Przycisk przycisk(12);
+WykrywaczObecnosci lewyWykrywacz(A1);
+WykrywaczObecnosci prawyWykrywacz(A0);
 
 void setup() {
-    
-    inicjalizacja();
+    lewySilnik.hamuj();
+    prawySilnik.hamuj();
 }
+
 
 void loop() {
-    Updater::updateEveryListeners();
-    petlaGlowna();
-
+   
     
 }
+
